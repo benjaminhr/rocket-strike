@@ -1,15 +1,6 @@
-const pxToNumber = (str) => Number(str.substring(0, str.length - 2))
+import isInViewPort from './IsInViewPort'
 
-const isInViewPort = (element) => {
-  var rect = element.getBoundingClientRect();
-  var html = document.documentElement;
-  return (
-    rect.top >= 10 &&
-    rect.left >= 10 &&
-    rect.bottom <= (window.innerHeight || html.clientHeight) &&
-    rect.right <= (window.innerWidth || html.clientWidth)
-  )
-}
+const pxToNumber = (str) => Number(str.substring(0, str.length - 2))
 
 const controls = (e) => {
   const leftArrow = 37
@@ -18,9 +9,9 @@ const controls = (e) => {
   const rocketPos = window.getComputedStyle(rocket).getPropertyValue('left')
   
   if (e.keyCode == leftArrow && isInViewPort(rocket)) {
-    rocket.style.left = (pxToNumber(rocketPos) - 20) + 'px'
+    rocket.style.left = (pxToNumber(rocketPos) - 30) + 'px'
   } else if (e.keyCode == rightArrow && isInViewPort(rocket)) {
-    rocket.style.left = (pxToNumber(rocketPos) + 20) + 'px'
+    rocket.style.left = (pxToNumber(rocketPos) + 30) + 'px'
   }
 }
 

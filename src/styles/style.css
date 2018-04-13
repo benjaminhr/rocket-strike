@@ -16,6 +16,11 @@
   animation-direction: alternate;
 }
 
+.meteor {
+  position: absolute; 
+  top: -20%;
+}
+
 @keyframes wobble {
    0% { transform: translateX(0%); } 
    15% { transform: translateX(-1%) rotate(-5deg); } 
