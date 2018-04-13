@@ -4,8 +4,8 @@ const isInViewPort = (element) => {
   return (
     rect.top >= 10 &&
     rect.left >= 10 &&
-    rect.bottom <= (window.innerHeight || html.clientHeight) &&
-    rect.right <= (window.innerWidth || html.clientWidth)
+    rect.bottom <= (document.clientHeight - 100 || html.clientHeight) &&
+    rect.right <= (document.clientWidth - 100 || html.clientWidth)
   )
 }
 
