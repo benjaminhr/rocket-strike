@@ -3,6 +3,8 @@ import './Controls'
 import Rocket from './Rocket'
 import Meteor from './Meteor'
 import anime from 'animejs'
+import isInViewPort from './IsInViewPort'
+import './Overlap'
 
 const render = (el) => {
   const mount = document.querySelector('.game')
@@ -12,6 +14,7 @@ const render = (el) => {
 setInterval(() => {
   const size = Math.floor(Math.random() * 100) + 50
   const leftPosition = Math.floor(Math.random() * document.body.clientWidth - 100) + 55;
+
   render(Meteor(size, leftPosition))
 
   anime({

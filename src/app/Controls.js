@@ -9,9 +9,9 @@ const controls = (e) => {
   const rocketPos = window.getComputedStyle(rocket).getPropertyValue('left')
   
   if (e.keyCode == leftArrow && isInViewPort(rocket)) {
-    rocket.style.left = (pxToNumber(rocketPos) - 30) + 'px'
+    rocket.style.left = (pxToNumber(rocketPos) - 50) + 'px'
   } else if (e.keyCode == rightArrow && isInViewPort(rocket)) {
-    rocket.style.left = (pxToNumber(rocketPos) + 30) + 'px'
+    rocket.style.left = (pxToNumber(rocketPos) + 50) + 'px'
   }
 }
 
