@@ -7,8 +7,7 @@ const isOverLapping = (e1, e2) => {
   }
   var rect1 = e1 instanceof Element ? e1.getBoundingClientRect() : false;
   var rect2 = e2 instanceof Element ? e2.getBoundingClientRect() : false;
-  
-  window.console ? console.log(rect1, rect2 ) : null ;
+
   var overlap = null;
   if( rect1 && rect2 ){
     overlap = !(
@@ -19,7 +18,6 @@ const isOverLapping = (e1, e2) => {
       )
     return overlap;  
   } else {
-    window.console ? console.warn( 'Please pass native Element object' ) : null;
     return overlap;
   }
 }
@@ -30,7 +28,7 @@ setInterval(() => {
   const initialOpacity = window.getComputedStyle(rocket).opacity
 
   doc.forEach((meteor) => {
-    let overlaps = isOverLapping(meteor, rocket)
+    const overlaps = isOverLapping(meteor, rocket)
 
     if (overlaps) {
       rocket.style.opacity = initialOpacity - 0.3

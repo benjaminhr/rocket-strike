@@ -5,13 +5,14 @@ import Meteor from './Meteor'
 import anime from 'animejs'
 import isInViewPort from './IsInViewPort'
 import './Overlap'
+import Explosion from './Explosion'
 
 const render = (el) => {
   const mount = document.querySelector('.game')
   mount.appendChild(el)
 }
 
-setInterval(() => {
+const generateMeteors = setInterval(() => {
   const size = Math.floor(Math.random() * 100) + 50
   const leftPosition = Math.floor(Math.random() * document.body.clientWidth - 100) + 55;
 
@@ -26,5 +27,13 @@ setInterval(() => {
     elasticity: 0
   })
 }, 2000)
+
+const checkIfExploded = setInterval(() => {
+  if (Explosion()) {
+    console.log('EXPLODED')
+    clearInterval(generateMeteors)
+    clearInterval(checkIfExploded)
+  }
+}, 500)
 
 render(Rocket())
